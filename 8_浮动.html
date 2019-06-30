@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1{
+            width: 150px;
+            height: 50px;
+            background: #ff0000;
+            float: left;
+        }
+        #div2{
+            width: 150px;
+            height: 50px;
+            background: blue;
+            float: left;
+        }
+        /* #parent{
+            溢出隐藏
+            overflow: hidden;
+            height: 50px;
+        } */
+        .clearfix::after{
+            /* 不含内容 所以是空的 */
+            content: '';
+            /* 变成块级元素 */
+            display: block;
+            /* 清除浮动 */
+            clear: both;
+        }
+        /* #div3{
+            clear: both;
+        } */
+    </style>
+    <!-- float  浮动脱离文档流 空间释放
+         塌陷
+
+         解决塌陷问题(使div有高度 让下面的元素上不去)
+         1      给父元素加 overflow:hidden 
+         2      给父元素设置高度
+         3      浮动元素下加一个兄弟元素  clear:both
+         4      clearfix::after伪元素 加空的标签 clear:both 实现
+    -->
+</head>
+<body>
+    <div id = "parent" class = "clearfix">
+        <div id="div1">1</div>
+        <div id="div2">2</div>
+        <!-- <div id = "div3"></div> -->
+    </div>
+    <h1>poqjweoinj;fl;'x;cl[mkgf</h1>
+</body>
+</html>
