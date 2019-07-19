@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            height: 2000px;
+        }
+        /* id选择器 */
+        #div2{
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+        /* 标签选择器 */
+        div{
+            width: 200px;
+            color: green;
+        }
+        /* class选择器 */
+        .div4{
+            width: 100px;
+            height: 100px;
+            background: yellow;
+        }
+        /* 后代选择器 */
+        /* div span{
+            color: pink;
+        } */
+        /* 子代选择器 */
+        div>span{
+            color: pink;
+        }
+        #ul1 .bb{
+            background: blue;
+        }
+        /* 分组选择器 */
+        p,li{
+            color: #bfa;
+        }
+        /* 伪类选择器 hover是鼠标划过的样式 */
+        a:hover{
+            color: green;
+        }
+        #div2:hover{
+            color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <div>1111</div>
+    <div id = "div2">2222</div>
+    <div>3333</div>
+
+    <div class = "div4">4444</div>
+    <div class = "div4">5555</div>
+    <div>6666</div>
+
+    <div>
+        <span>spanspan</span>
+        <span>1111</span>
+        <!-- #   刷新当前界面 -->
+        <a href="#">aaaa</a>
+        <p>
+            dfghjkghglo';l'p <span>22222</span>
+        </p>
+    </div>
+    <ul id = "ul1">
+        <li>11</li>
+        <li class = "bb">22</li>
+        <li class = "bb">33</li>
+    </ul>
+    <a href="">xiuer</a>
+    
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>                                                 <!--声明文档类型-->
+<html lang="en">                                                <!--根元素-->
+<head>                                                          <!--head内写配置信息-->
+    <meta charset="UTF-8">                                      <!--文字编码-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">      <!--适配 页面宽等于屏幕宽-->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">                       <!--兼容ie浏览器-->
+    <mate name = "keywords" constant = "鲜花">                              <!--搜索关键字-->
+    <mate name = "description" constant = ".....">                          <!--搜索关键内容-->    
+    <title>羊村你喜哥</title>                                     <!--网页标题-->
+</head>
+<body>
+    <!-- 字体大小依次减小 -->
+    <h1>标题</h1>
+    <h2>标题</h2>
+    <h3>标题</h3>
+    <h4>标题</h4>
+    <h5>标题</h5>
+    <h6>标题</h6>
+        <!-- 引用图片 -->
+        <!-- 相对路径  绝对路径 -->
+    <img src="https://i1.mifile.cn/a4/xmad_15604257972231_CkADd.jpgl" alt="加载失败">
+    <!-- /title 当鼠标移到后有文字显示 -->
+    <img src="5b5e86f5bdc19.jpg" alt="网络不行！" title="这是个title">
+    <!-- 超链接  打开新窗口    图片加载不出来显示alt里的元素 -->
+    <img src="5f9dbb12588387394e9f4066bd9efb01.gif" alt="   1">
+    <a href="http://www.baidu.com" target="_blank">百度</a>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <ol>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ol>
+    <!-- 
+        块级元素 自己占一行
+        行级元素
+    -->
+    <div>
+        文字<span style="color:#999;">头文字D</span>
+    </div>  
+    <!-- 表单元素 提交数据到后台 -->
+    <form action="">
+        <!-- 获取焦点 -->
+        <label for="username">用户名:</label> <input id ="username" type="text">
+        <label for="password">密码:</label><input id = "password" type="password">
+        <!-- 换行 -->
+        <br>
+        <!-- 单选框 -->
+        <input type="radio" name="sex">男
+        <input type="radio" name="sex">女
+        <!-- 复选框 -->
+        <input type="checkbox" name="hobby">羽毛球
+        <input type="checkbox" name="hobby">篮球
+        <input type="checkbox" name="hobby">足球
+        <br>
+        <!-- 下拉框 -->
+        <select >
+            <option value="">黑大</option>
+            <option value="">理工</option>
+            <option value="">林大</option>
+            <option value="">唯创</option>
+        </select>
+        <br>
+        <!-- 文本域 -->
+        <textarea cols="30" rows="10"></textarea>
+        <br>
+        <!-- 提交按钮 -->
+        <input type="submit">
+        <br>
+        <!-- 普通按钮 -->
+        <input type="button">
+    </form>
+    <table border="1" cellspacing="0">
+        <td>11</td>
+        <td>22</td>
+        <td>33</td>
+    </table>
+</body>
+</html>
