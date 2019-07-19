@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function fn(){
+        //     console.log("111")
+        // }
+        // fn();
+        // 函数如果不写返回值  默认返回underfined
+
+        /*
+        function add(x,y){
+            // console.log(a+b);
+            return a+b;
+        }
+        var x = add(2,3);
+        add(4,6);
+
+        console.log(x);
+        console.log(add(2,3));
+        */
+
+        /*
+        var fn = function(a,b){
+            console.log(a+b);
+        }
+        fn(3,4);
+        */
+
+        // f1();
+        f2();
+        console.log(f1);  //underfined
+        // f1();
+
+        var f1 = function(){
+            console.log('aaa');
+        }
+    
+        // 函数提升
+        function f2(){
+            console.log('bbb');
+        }
+    </script>
+</body>
+</html>
