@@ -140,37 +140,35 @@
         // }
         // min(a,b);
         
-        // var temp = 0;
-        // function fn(a){
-        //     if(a%3==0 && a%5==0 && a%7==0){
-        //         document.write(a);
-        //         document.write('\n');
-        //         temp+=1;
+        // function fn(){
+        //     var temp = 0;
+        //     for(var i = 1; i < 1001; i ++){
+        //         if(i%3==0 && i%5==0 && i%7==0){
+        //             document.write(i+"&nbsp;");
+        //             temp+=1;
+        //             if(temp%6==0){
+        //                 document.write('<br>');
+        //             }
+        //         } 
         //     }
         // }
-        // for(var i = 1000; i < 10000; i ++){
-        //     fn(i);
-        //     if(temp%6==0){
-        //         document.write('\n');
-        //     }
-        // }
+        // fn();
         
         // var temp = 0, num = 0;
         // for(var i = 100; i < 1001; i ++){
         //     temp = 0;
         //     for(var j = 10; j < 101; j++ ){
         //         if(i%j==0){
-        //             document.write(' ');
-        //             temp = 1;
-        //             num+=1;
+        //             temp = 1;        
         //             break;
         //         }
         //     }
         //     if(temp==0){
-        //         document.write(i);
-        //     }
-        //     if(num==6){
-        //         document.write('\n');
+        //         document.write(i+',');
+        //         num+=1;
+        //         if(num == 6){
+        //            document.write("<br>");
+        //         }
         //     }
         // }
 
@@ -198,18 +196,180 @@
         // }
         // fn(5);
         
-        // function fn(x){
-        //     for(i = 1; i < x+1; i ++){
+        // 递归调用
+        // function fn(i){
         //         if(i==1 || i==2){
-        //             document.write('1');
+        //             return 1;
+        //         }else{
+        //             return fn(i-1) + fn(i-2);
         //         }
-        //         else{
-        //             var k = i-1, m = i-2;
-        //             document.write(k+m);
+        // }
+        // document.write(fn(5));
+        // 非递归调用
+        // function fn1(n){
+        //     if(n<=2){
+        //         return 1;
+        //     }
+        //     var f1 = 1, f2 = 1, temp;
+        //     for(var i = 3;i <= n;i ++){  //f1 f2 temp
+        //         temp = f1 + f2;
+        //         f1 = f2;
+        //         f2 = temp;
+        //     }
+        //     return f2;
+        // }
+        
+
+        // function fn(n){
+        //     var x = -1,temp = 1, num = 0;
+        //     for(var i = 1; i < n+1; i ++){
+        //         x = x * -1;
+        //         temp = x/(2*i-1);
+        //         num +=temp;
+        //     }
+        //     document.write(num*4);
+        // }
+        // fn(1);
+
+        // var str = "";
+        // var sum = 0;
+        // var win = 0;
+        // function play(){
+        //     sum = sum + 1;
+        //     str = "";
+        //     var n = Math.floor(Math.random()*9+1);
+        //     var m = Math.floor(Math.random()*9+1);
+        //     var u = Math.floor(Math.random()*9+1);
+        //     str += n;
+        //     str += m;
+        //     str += u;
+        //     str += "\n";
+        //     if(n==8 || m==8 || u==8){
+        //         str += "赢";
+        //         str += "\n";
+        //         win ++;
+        //     }
+        //     else{
+        //         str += "输";
+        //         str += "\n";
+        //     }
+        //     str += win/sum*100+'%';
+        // }
+        // do{
+        //     play();
+        // }while(confirm(str));
+// 第六章
+        // var x = prompt('请输入');
+        // document.write(x*x+' ');
+        // document.write(Math.sqrt(x)+' ');
+        // document.write(Math.log(x)+' ');
+
+        // function fn(){
+        //     var n = Math.random()*100;
+        //     document.write(Math.round(n));
+        // }
+        // fn();
+
+        // document.write('现在的时间是'+Date()+',欢迎您的到访');
+
+        // var x = 'ada1s56f1a';
+        // function CollectDigits(a){
+        //     var str = a.split("");
+        //     for(var i = 0; i < str.length; i ++){
+        //         // str[i] = str[i] * 1;
+        //         var type = typeof str[i];
+        //         if(type==number){
+        //             document.write(str[i]);
         //         }
         //     }
         // }
-        // fn(5);
+        // CollectDigits(x);
+
+        // function CollectDigits(s){
+        //     var num = "";
+        //     for(var i = 0; i<s.length; i++){
+        //         var char = s.charAt(i);
+        //         if(char >= 0 && char <=9){
+        //             num += char;
+        //         }
+        //     }
+        //     document.write(num);
+        // }
+        // var str = "a12b3c4de";
+        // CollectDigits(str);
+
+        // function Merge(s1,s2){
+        //     var a1 = s1.split(""), a2 = s2.split("");
+        //     var m1 = a1, m2 = a2, str = '';
+        //     if(a1.length<a2.length){
+        //         m1 = a2, m2 = a1;
+        //     }
+        //     for(var i = 0; i < m2.length; i++){
+        //         str = str + m1[i] + m2[i];
+        //     }
+        //     for(var j = m2.length; j < m1.length; j ++){
+        //         str = str + m1[j];
+        //     }
+        //     document.write(str);
+        // }
+        // var str1='123abc', str2 = '456';
+        // Merge(str1,str2);
+
+        // var str = new Array(7);
+        // var num = 0, arr = 0;
+        // var grade = new Array(7);
+        // for(var i = 0; i < 7; i ++){
+        //     grade[i] = prompt(str[i]);
+        //     grade[i] = grade[i] * 1;
+        //     num = num +grade[i];
+        //     num = num *1;
+        // }
+        // arr = num/7;
+        // arr = arr * 1;
+        // document.write("总成绩为"+num+"<br>"+"平均分为"+arr+"<br>");
+        // for(var j = 0; j < 8; j ++){
+        //     if(grade[j]<60){
+        //         document.write(grade[j]+"&nbsp");
+        //     }
+        // }
+
+        // function fn1(n){
+        //     if(n<=2){
+        //         return 1;
+        //     }
+        //     var f1 = 1, f2 = 1, temp;
+        //     for(var i = 3;i <= n;i ++){  //f1 f2 temp
+        //         temp = f1 + f2;
+        //         f1 = f2;
+        //         f2 = temp;
+        //     }
+        //     return f2;
+        // }
+        // var temp = 0;
+        // for(var j = 40; j >= 1; j--){
+        //     document.write(fn1(j)+"&nbsp");
+        //     temp += 1;
+        //     if(temp%6==0){
+        //         document.write("<br>");
+        //     }
+        // }
+
+        // var arr = new Array(31,28,31,30,31,30,31,31,30,31,30,31);
+        // function DayOfYear(year,month,day){
+        //     var num = 0;
+        //     if(IsLeapYear(year)){
+        //         arr[1]=29;
+        //     }
+        //     for(var i = 0; i < month-1; i++){
+        //         num = num + arr[i];
+        //     }
+        //     num = num + day;
+        //     return num;
+        // }
+        // function IsLeapYear(year){
+        //     return ((year%4==0 && year%100!=0) || year%400==0);
+        // }
+        // document.write(DayOfYear(2016,3,1));
     </script>
 </body>
 </html>
