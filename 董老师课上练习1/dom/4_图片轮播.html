@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    ul{
+        list-style: none;
+    }
+    #container{
+        margin: 200px 300px;
+        width: 750px;
+        height: 291px;
+        /* margin: 0 auto; */
+        position: relative;
+    }
+    #btns{
+        position: absolute;
+        right: 5px;
+        bottom: 10px;
+    }
+    #btns li, #arrow li{
+        float: left;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        text-align: center;
+        margin-right: 5px;
+        border-radius: 5px;
+        background: rgba(0,0,0,0.5);
+        color: #fff;
+        cursor: pointer;
+    }
+    #btns .list{
+        background: #ff0036;
+    }
+    #arrow{
+        position: absolute;
+        left: 10px;
+        bottom: 10px;
+    }
+    #content div{
+        display: none;
+    }
+    #content .selected{
+        display: block;
+    }
+</style>
+<body>
+    <div id = "container">
+        <div id = "content">
+            <div class = "selected"><img src="../img/1.jpg" alt=""></div>
+            <div><img src="../img/2.jpg" alt=""></div>
+            <div><img src="../img/3.jpg" alt=""></div>
+            <div><img src="../img/4.jpg" alt=""></div>
+            <div><img src="../img/5.jpg" alt=""></div>
+        </div>
+        <ul id = "btns">
+            <li class = "list">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        <ul id = "arrow">
+            <li id = "arrow-left">&lt;</li>
+            <li id = "arrow-right">&gt;</li>
+        </ul>
+    </div>
+    <script>
+    var ALI = document.getElementById('btns');
+    var ali = ALI.getElementsByTagName('li');
+    var ODIV = document.getElementById('content');
+    var odiv = ODIV.getElementsByTagName('div');
+    var Aleft = document.getElementById('arrow-left');
+    var Aright = document.getElementById('arrow-right');
+
+    for(var i = 0;i < ali.length;i ++){
+        x=0;
+        ali[i].onclick = function(){
+            for(var j = 0;j < ali.length;j ++){
+                ali[j].index = j;
+                ali[j].className = "";
+                odiv[j].className = "";
+            }
+            this.className = "list";
+            odiv[this.index].className = "selected";
+            x++;
+        }
+    }
+    // for(x=0;x<5;x++){
+    //     Aright[x].onclick = function(){
+    //     for(var j = 0;j < ali.length;j ++){
+    //             ali[j].index = j;
+    //             ali[j].className = "";
+    //             odiv[j].className = "";
+    //         }
+    //     this.className = "list";
+    //     odiv[this.index].className = "selected";
+    //     }
+    // }
+    
+    </script>
+</body>
+</html>
