@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0px;
+        padding: 0px;
+    }
+    body{
+        color:#666;
+        font-size: 14px;
+    }
+#top-list li{
+    list-style: none;
+}
+#container{
+    margin:100px;
+}
+#top-list{
+    overflow: hidden;
+}
+#top-list li{
+    float:left;
+    width: 50px;
+    height: 30px;
+    background: #FaFaFa;
+    border:1px solid #898989;
+    border-bottom: none;
+    line-height: 30px;
+    margin-right:8px;
+    text-align: center;
+}
+#top-list .active{
+    background: blue;
+    color: #fff;
+}
+#content{
+    width: 300px;
+    height: 100px;
+    border: 1px solid #898989;
+}
+#content div{
+    display: none;
+}
+#content .selected{
+    display:block;
+}
+</style>
+<body>
+    <div id = "container">
+        <ul id = "top-list">
+            <li class = "active">实事</li>
+            <li>体育</li>
+            <li>娱乐</li>
+        </ul>
+        <div id = "content">
+            <div class = "selected">实事</div>
+            <div>体育</div>
+            <div>娱乐</div>
+        </div>
+    </div>
+    <script>
+        var ODiv = document.getElementById("content");
+        var odiv = ODiv.getElementsByTagName('div');
+        var ali = document.getElementsByTagName('li');
+        for(var i = 0;i < ali.length;i ++){
+            ali[i].onclick = function(){
+                // 把当前所有的都清空
+                for(var j = 0;j < ali.length;j ++){
+                    ali[j].index = j;
+                    ali[j].className = "";
+                    odiv[j].className = "";
+                }
+                // 对点击的加状态
+                this.className = "active";
+                odiv[this.index].className = "selected";
+            }
+        }
+    
+    </script>
+</body>
+</html>
