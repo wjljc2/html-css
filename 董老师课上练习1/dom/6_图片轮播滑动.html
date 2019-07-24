@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    ul{
+        list-style: none;
+    }
+    #container{
+        width: 750px;
+        margin: 100px auto;
+        position: relative;
+        overflow: hidden;
+        /* 设置高度解决定位的塌陷问题 */
+        height: 291px;
+    }
+    #btns{
+        position: absolute;
+        right: 5px;
+        bottom: 10px;
+    }
+    #content{
+        width: 3750px;
+        overflow: hidden;
+        position: absolute;
+        left: 0;
+        top: 0;
+        transition: left 1s linear;
+    }
+    #content div{
+        float: left;
+    }
+    #content div img{
+        display: block;
+    }
+    #btns li, #arrow li{
+        float: left;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        text-align: center;
+        margin-right: 5px;
+        border-radius: 5px;
+        background: rgba(0,0,0,0.5);
+        color: #fff;
+        cursor: pointer;
+    }
+    #btns .list{
+        background: #ff0036;
+    }
+    #arrow{
+        position: absolute;
+        left: 10px;
+        bottom: 10px;
+    }
+</style>
+<body>
+    <div id = "container">
+        <div id = "content">
+            <div><img src="../img/1.jpg" alt=""></div>
+            <div><img src="../img/2.jpg" alt=""></div>
+            <div><img src="../img/3.jpg" alt=""></div>
+            <div><img src="../img/4.jpg" alt=""></div>
+            <div><img src="../img/5.jpg" alt=""></div>
+        </div>
+        <ul id = "btns">
+            <li class = "list">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        <ul id = "arrow">
+            <li id = "arrow-left">&lt;</li>
+            <li id = "arrow-right">&gt;</li>
+        </ul>
+    </div>
+    <script>
+        var Acontainer = document.getElementById('container');
+
+        var ALI = document.getElementById('btns');
+        var ali = ALI.getElementsByTagName('li');
+
+        var ODIV = document.getElementById('content');
+        var odiv = ODIV.getElementsByTagName('div');
+
+        var Aleft = document.getElementById('arrow-left');
+        var Aright = document.getElementById('arrow-right');
+
+        var Inow = 0;
+        for(var i = 0;i < ali.length; i++){
+            ali[i].index = i;
+            ali[i].onclick = function(){
+                change(this.index);
+                Inow = this.index;
+            }
+        }
+        Aright.onclick = function(){
+            Inow++;
+            if(Inow == ali.length){
+                Inow = 0;
+            }
+            change(Inow);
+        }
+        Aleft.onclick = function(){
+            Inow--;
+            if(Inow == -1){
+                Inow = ali.length-1;
+            }
+            change(Inow);
+        }
+        function change(x){
+            for(var j = 0;j < ali.length;j++){
+                ali[j].className = "";
+            }
+            ali[x].className = "list";
+            ODIV.style.left = -x*750+"px";
+        }
+
+        var timer = setInterval(Aright.onclick,1000);
+
+        Acontainer.onmouseover = function(){
+            clearInterval(timer);
+        }
+        Acontainer.onmouseout = function(){
+            timer = setInterval(Aright.onclick,1000);
+        }
+    </script>
+</body>
+</html>

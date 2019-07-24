@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 谁的事件 this就是谁 事件源是 谁导致谁就是事件源 -->
+    <div id="div1">11111</div>
+    <script>
+        var oDiv1 = document.getElementById('div1');
+        oDiv1.addEventListener('click',function(){
+            console.log('111');
+        },false);   // 冒泡false    捕获true
+        oDiv1.addEventListener('click',function(){
+            console.log('222');
+        },false);
+    
+    </script>
+</body>
+</html>
