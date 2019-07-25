@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1">111</div>
+    <ul id = "ul1">
+        <li>1111</li>
+
+        <li>2222</li>
+        <li id = "li3">3333</li>
+    </ul>
+    <!-- 
+        节点遍历
+        nextSibling  nextElementSibling
+        previousSibling  preciousElementSibling
+        firstChild
+        lastChild
+        children
+
+
+     -->
+    <script>
+        var Odiv = document.getElementById('div1');
+        var Oli = document.getElementById('li3');
+        // console.log(Odiv.nodeType);
+        // console.log(Odiv.firstChild.nodeType);
+        
+        // 节点遍历
+        // console.log(Odiv.nextSibling);      // ie下一个元素 标准浏览器
+        // console.log(Odiv.nextElementSibling);   // ie不支持
+        
+        // function next(elem){
+        //     do{
+        //         elem = elem.next.nextSibling;
+        //     }while(elem && elem.nodeType != 1) // 如股票下一个兄弟不是元素节点 接着循环 null(无效值)
+        //     return elem;
+        // }
+        // console.log(next(Oli))  // 下一个元素节点
+
+        var Oul = document.getElementById('ul1');
+        console.log(Oul.children);
+    
+    </script>
+</body>
+</html>

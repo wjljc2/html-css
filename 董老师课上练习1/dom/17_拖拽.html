@@ -34,6 +34,20 @@
                 // 随着鼠标走
                 Odiv.style.left = e.clientX - disX + "px";
                 Odiv.style.top = e.clientY - disY + "px";
+                if(Odiv.offsetLeft < 0){
+                    Odiv.style.left = "0px";
+                }
+                if(Odiv.offsetTop < 0){
+                    Odiv.style.top = "0px";
+                }
+                // 右最大值
+                if(Odiv.offsetLeft > document.documentElement.clientWidth - Odiv.offsetWidth){
+                    Odiv.style.left = document.documentElement.clientWidth - Odiv.offsetWidth + "px";
+                }
+                // 下最大值
+                if(Odiv.offsetTop > document.documentElement.clientHeight - Odiv.offsetHeight){
+                    Odiv.style.top = document.documentElement.clientHeight - Odiv.offsetHeight + "px";
+                }
             }
         }
         Odiv.onmouseup = function(){

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        节点操作
+        createElement()  创建节点
+        appendChild()  插入节点到末尾
+        removeChild()   删除
+        replaceChild(newnode,oldnode)
+        insertBefore()
+
+     -->
+     <div id="div1">
+         <h2>hahah</h2>
+         <button id="btn">click</button>
+     </div>
+     <script>
+        //  var Odiv = document.createElement('div1');
+        //  Odiv.innerHTML = "ahahaha";
+        //  document.body.appendChild(Odiv);  // 插入到body中
+        var Obtn = document.getElementById('btn');
+        var Odiv = document.getElementById('div1');
+        var Oh2 = Odiv.getElementsByTagName('h2')[0];  // 返回的是数组 取值加下标
+
+        Obtn.onclick = function(){
+            // var Ospan = document.createElement('span');
+            // Ospan.innerHTML = "1231313";
+            // Odiv.replaceChild(Ospan,Oh2);
+            Odiv.removeChild(Oh2);
+        }
+     
+     </script>
+</body>
+</html>
