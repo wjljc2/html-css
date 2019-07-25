@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    #div1{
+        width: 200px;
+        height: 200px;
+        background: #ff0000;
+        position: absolute;
+        left: 0;
+        top: 0;    
+    }
+</style>
+<body>
+    <div id="div1"></div>
+    <script>
+        var Odiv = document.getElementById('div1');
+        Odiv.onmousedown = function(e){
+            // 鼠标距离div左侧的位置
+            var disX = e.clientX - Odiv.offsetLeft;
+            var disY = e.clientY - Odiv.offsetTop;
+            console.log(disX);
+            console.log(disY);
+            document.onmousemove = function(e){
+                // 随着鼠标走
+                Odiv.style.left = e.clientX - disX + "px";
+                Odiv.style.top = e.clientY - disY + "px";
+            }
+        }
+        Odiv.onmouseup = function(){
+            document.onmousemove = null;
+        }
+    
+    
+    </script>
+</body>
+</html>
