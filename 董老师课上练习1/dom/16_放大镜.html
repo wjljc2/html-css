@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    #small-box, #big-box{
+        width: 400px;
+        height: 400px;
+        float: left;
+        overflow: hidden;
+
+    }
+    #small-box{
+        position: relative;
+    }
+    #big-box{
+        display: none;
+        position: relative;
+    }
+    #big-img{
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    #drag{
+        width: 200px;
+        height: 200px;
+        background: rgba(0,0,0,0.5);
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        display: none;
+    }
+
+</style>
+<body>
+    <div id="container">
+        <div id="small-box">
+            <img src="../img/1 copy.jpg" alt="">
+            <span id = "drag"></span>
+        </div>
+        <div id="big-box">
+            <img id = "big-img" src="../img/2 copy.jpg" alt="">
+        </div>
+    </div>
+    <script>
+        var Osmallbox = document.getElementById('small-box');
+        var Odrag = document.getElementById('drag');
+        var Obigbox = document.getElementById('big-box');
+        var Oimgbox = document.getElementById('big-img');
+
+        Osmallbox.onmouseover = function(){
+            Odrag.style.display = "block";
+            Obigbox.style.display = "block";
+        }
+        Osmallbox.onmousemove = function(e){
+            Odrag.style.left = e.clientX - Odrag.offsetWidth/2 + "px";
+            Odrag.style.top = e.clientY - Odrag.offsetHeight/2 + "px";
+            
+            if(Odrag.offsetLeft < 0){
+                Odrag.style.left = "0px";
+            }
+            var Leftmax = Osmallbox.offsetWidth - Odrag.offsetWidth;
+            if(Odrag.offsetLeft >= Leftmax){
+                Odrag.style.left = Leftmax + "px";
+            }
+            if(Odrag.offsetTop < 0){
+                Odrag.style.top = "0px";
+            }
+            var Topmax = Osmallbox.offsetHeight - Odrag.offsetHeight;
+            if(Odrag.offsetTop >= Topmax){
+                Odrag.style.top = Topmax + "px";
+            }
+            // 小图走的最大距离
+            var smalldisX = Osmallbox.offsetWidth - Odrag.offsetWidth;
+            var bigdisX = Oimgbox.offsetWidth - Obigbox.offsetWidth;
+            var smalldisY = Osmallbox.offsetHeight - Odrag.offsetHeight;
+            var bigdisY = Oimgbox.offsetHeight - Obigbox.offsetHeight;
+
+            Oimgbox.style.left = -bigdisX*(Odrag.offsetLeft/smalldisX) + "px";
+            Oimgbox.style.top = -bigdisY*(Odrag.offsetTop/smalldisY) + "px";
+        }
+        Osmallbox.onmouseout = function(){
+            Odrag.style.display = "none";
+            Obigbox.style.display = "none";
+        }
+    
+    
+    </script>
+</body>
+</html>
