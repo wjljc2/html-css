@@ -19,6 +19,23 @@
         捕获  从外向里(ie不支持)
         既有捕获又有冒泡 先捕获 后冒泡 (先从外到里  再从里向外)
      -->
-    
+    <script>
+        var oDiv1 = document.getElementById('div1');
+        var oDiv2 = document.getElementById('div2');
+        oDiv1.addEventListener('click',function(){
+            console.log('div1 捕获');
+        },true)
+        oDiv2.addEventListener('click',function(){
+            console.log('div2 捕获');
+        },true)
+
+        oDiv1.addEventListener('click',function(){
+            console.log('div1 冒泡');
+        },false)
+        oDiv2.addEventListener('click',function(){
+            console.log('div2 冒泡');
+        },false)
+
+    </script>
 </body>
 </html>

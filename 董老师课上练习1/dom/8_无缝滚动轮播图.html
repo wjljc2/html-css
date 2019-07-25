@@ -18,7 +18,7 @@
             width: 750px;
             margin:100px auto;
             position: relative;
-            overflow: hidden;
+            /* overflow: hidden; */
             height: 291px;
         }
         #img-box{
@@ -129,7 +129,7 @@
         oPrev.onclick = function(){
             Inow--;
             if(Inow == -1){
-                oImgBox.style.left = "3750px";
+                oImgBox.style.right = "3750px";
                 Inow = 4;
             }
             change(Inow);
@@ -143,6 +143,14 @@
                 left:-x*750
             })
         }
+        var timer = setInterval(oNext.onclick,1000);
+        oContainer.onmouseover = function(){
+            clearInterval(timer);
+        }
+        oContainer.onmouseout = function(){
+            timer = setInterval(oNext.onclick,1000);
+        }
+        
     </script>
 </body>
 </html>
