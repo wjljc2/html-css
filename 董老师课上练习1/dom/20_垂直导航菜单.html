@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    #div1,#div2{
+        width: 200px;
+        height: 40px;
+        background: black;
+        color: white;
+        line-height: 40px;
+        font-size: 20px;
+    }
+</style>
+<body>
+    <div id = "container">
+        <div id="div1">管理区</div>
+        <div id="div2">交流区</div>
+    </div>
+    <script>
+    var Odiv1 = document.getElementById('div1');
+    var Odiv2 = document.getElementById('div2');
+    Odiv1.onclick = function(){
+        var Odiv = document.createElement('div1');
+        Odiv.innerHTML = "1111";
+        Odiv1.appendChild(Odiv);
+    } 
+    
+    </script>
+</body>
+</html>
