@@ -6,11 +6,60 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+<style>
+img{
+    position: absolute;
+}
+
+</style>
 <body>
     <!-- 
         属性:  大小 位置  图片  速度
         方法:  初始化  点击下落
      -->
-     
+    <script>
+        var screenwidth = document.documentElement.clientWidth || document.body.clientWidth
+        var screenheight = document.documentElement.clientHeight || document.body.clientHeight
+        function Leaf(){
+            this.width = Math.random()*50+100;
+            this.pos = {
+                left: Math.random()*(screenwidth-this.width),     //0 ~ screenwidth-this.width
+                top: 0
+            };
+            var Oimg = new Image();
+            Oimg.src = "../img/树叶"+(Math.floor(Math.random()*4)+1)+".png";
+            Oimg.style.width = this.width + "px";
+            Oimg.style.left = this.pos.left + "px";
+            Oimg.style.top = this.pos.top + "px";
+            this.img = Oimg;
+            this.speed = 5;
+        }
+        Leaf.prototype.init = function(){  // 插入到页面中
+            document.body.appendChild(this.img);
+        }
+        Leaf.prototype.fall = function(){
+            var that = this;            // 因为定时器中this指向window 所以先将this存在that中
+            setTimeout(function(){      // 延迟 不同时间下落
+                var timer = setInterval(function(){
+                    if(that.img.offsetTop >= screenheight-that.img.offsetHeight){
+                        clearInterval(timer);
+                    }else{
+                        that.img.style.top = that.img.offsetTop + that.speed + "px";
+                    }
+                },10)
+            },Math.random()*500+100);
+        }
+        var arr = [];
+        for(var i = 0; i < 10; i ++){
+            var leaf = new Leaf();
+            arr.push(leaf);
+            leaf.init();
+        }
+        document.onclick = function(){
+            for(var j = 0; j < arr.length; j ++){
+                arr[j].fall();
+            }
+        }
+    </script>
 </body>
 </html>
