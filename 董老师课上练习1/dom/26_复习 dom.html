@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1">111</div>
+    <ul>
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+    </ul>
+    <script>
+    document.getElementById()                //dom元素  没有返回null
+    document.getElementsByClassName();       //数组    没有返回空数组
+    document.getElementsByTagName();
+    document.getElementsByName();    
+        
+    // 接受选择器 返回dom元素 如果有 多个只返回一个
+    var Odiv = document.querySelector("#div1");
+    var ali = document.querySelectorAll("li");
+
+    // 只能取到内联样式
+    Odiv.style.width = "100px";
+
+    // 可以取到值 用来取值加减 不能赋值
+    Odiv.offsetWidth
+    Odiv.offsetHeight
+    Odiv.offsetTop
+    Odiv.offsetLeft
+    Odiv.offsetParent
+        
+    </script>
+</body>
+</html>
