@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<!-- 通过弹性盒模型水平垂直居中 -->
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            height: 600px;
+            background: #eeeeee;
+            display: flex;
+            justify-content: center;        /* 水平居中 */
+            align-items: center;            /* 垂直居中 */
+        }
+        #div2{
+            width: 200px;
+            height: 200px;
+            background: #000;
+        }
+    </style>
+<body>
+    <div id="div1">
+        <div id="div2"></div>
+    </div>
+</body>
+</html>

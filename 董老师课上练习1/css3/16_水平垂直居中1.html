@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<!-- 通过定位调整位置 再通过改变 margin 或 位移 进行调整 -->
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            height: 600px;
+            background: #eeeeee;
+            position: relative;
+        }
+        #div2{
+            width: 200px;
+            height: 200px;
+            background: #000;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            /* 将div移动到中心可以通过以下两种方式进行 */
+            /* margin-left: -100px;
+            margin-top: -100px; */
+            transform: translate(-50%,-50%);
+        }
+    </style>
+<body>
+    <div id="div1">
+        <div id="div2"></div>
+    </div>
+</body>
+</html>
