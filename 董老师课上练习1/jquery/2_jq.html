@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        // 文档就绪  页面结构稳定  不会等待所有的资源
+        $(document).ready(function(){
+            console.log("haha")
+            var odiv = document.getElementById('div1');
+            console.log(odiv.innerHTML);
+        });
+        window.onload = function(){
+            console.log('hehehe');
+        }
+        // $(document).ready(function(){        
+        //     console.log('hahaha')
+        // });
+        // 简写方式
+        // $(function(){
+        //     console.log("xoxoxixi")
+        // });
+    </script>
+</head>
+<body>
+    <div id="div1">heheheh</div>       
+</body>
+</html>

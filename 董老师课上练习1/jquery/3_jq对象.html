@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1">hahahha</div>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        // 源生js
+        var odiv = document.getElementById('div1');
+        console.log(odiv.innerHTML);
+
+        console.log($("#div1"));
+        // 源生对象转成jquery对象  $(dom)
+        console.log($(odiv))
+        
+        // jquery对象转化为原生对象 jq.get(0)  ||  jq[0]
+        console.log($('#div1').get(0));
+    </script>
+</body>
+</html>
