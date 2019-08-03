@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="inner hello">Hello</div>
+        <div class="inner goodbye">Goodbye</div>
+    </div>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        // $('.hello').on('click',function(){
+        //     console.log('haha');
+        // })
+        // 子元素  添加到   true的作用是把后添加的也绑上事件
+        // $('.hello').clone(true).appendTo('.goodbye');
+        // 父元素  添加
+        // $('.goodbye').append($('.hello').clone(true));
+
+        // append 把append里的元素插入进前面的对象的后面
+        // $('.inner').append('<p>Test</p>');
+        // prepend 把prepend里的元素插入进前面的对象的前面
+        // $('.inner').prepend('<p>Test</p>');
+
+        // after插入到div的后面  同理 before插入到div前面
+        // $('.inner').after('<p>Test</p>');
+        
+        // replaceAll() 替换内容
+        // $('<h2>New heading</h2>').replaceAll('.inner');
+
+        // remove() 移除
+        // $('.inner').remove();
+    </script>
+</body>
+</html>

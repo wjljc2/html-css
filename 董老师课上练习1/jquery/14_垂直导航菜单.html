@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            width: 200px;
+            border: 1px solid #000;
+        }
+        ul{
+            list-style: none;
+        }
+        .div{
+            background: #000;
+            color: #fff;
+            font-size: 20px;
+        }
+        #container ul{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id = "container">
+        <div class = "div">
+            <span>管理区</span>
+            <ul>
+                <li>1111</li>
+                <li>1111</li>
+                <li>1111</li>
+            </ul>
+        </div>
+        <div class = "div">
+            <span>交流区</span>
+            <ul>
+                <li>1111</li>
+                <li>1111</li>
+                <li>1111</li>
+            </ul>
+        </div>
+    </div>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        $('.div span').on('click',function(){
+            if(ul.style.display == 'none'  ||  ul.style.display == ''){
+                $(this).next().css('display','block');
+            }else{
+                $(this).next().css('display','none');
+            }
+        })
+    
+    </script>
+</body>
+</html>

@@ -63,7 +63,7 @@
     function next(elem){
         do{
             elem = elem.nextSibling;
-        }while(elem && elem.nodeType != 1) // 如股票下一个兄弟不是元素节点 接着循环 null(无效值)
+        }while(elem && elem.nodeType != 1) // 如果下一个兄弟不是元素节点 接着循环 null(无效值)
         return elem;
     }
     
