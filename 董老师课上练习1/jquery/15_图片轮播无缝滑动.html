@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-</head>
-<style>
+    <style>
         *{
             margin: 0;
             padding: 0;
@@ -62,8 +61,8 @@
             left:10px;
             bottom: 10px;
         }
-       
     </style>
+</head>
 <body>
     <div id="container">
         <div id="img-box">
@@ -100,57 +99,15 @@
     
     </div>
 
-    <script src="jslib.js"></script>
+    <script src="jquery-1.12.4.js"></script>
     <script>
-        var oContainer = document.getElementById('container');
-        var oBtnBox = document.getElementById('btn-box');
-        var aBtns = oBtnBox.getElementsByTagName('li');
-        var oImgBox  = document.getElementById('img-box');
-        var aImg = oImgBox.getElementsByTagName('a');
-        var oNext = document.getElementById('next');
-        var oPrev = document.getElementById('prev');
-        var Inow = 0;
-        for(var i=0; i<aBtns.length; i++){
-            aBtns[i].index = i;
-            aBtns[i].onclick = function(){
-                change(this.index);
-                Inow = this.index;
-            }
-        }
-        oNext.onclick = function(){
-            Inow++;
-            if(Inow == aImg.length){
-                // 迅速切回第一张图并显示 索引 是1的图片
-                oImgBox.style.left = "0px";
-                Inow = 1;
-            }
-            change(Inow);
-        }
-        oPrev.onclick = function(){
-            Inow--;
-            if(Inow == -1){
-                oImgBox.style.left = "-3750px";
-                Inow = 4;
-            }
-            change(Inow);
-        }
-        function change(x){
-            for(var i=0; i<aBtns.length; i++){
-                aBtns[i].className = "";
-            }
-            aBtns[x == 5?0:x].className = "active";
-            animate(oImgBox,{
-                left:-x*750
+        $('#btn-box li').on('click',function(){
+            $(this).addClass('active').siblings().removeClass('active');
+            $('oImgBox').animate({
+                left: -$(this).index()*750
             })
-        }
-        var timer = setInterval(oNext.onclick,1000);
-        oContainer.onmouseover = function(){
-            clearInterval(timer);
-        }
-        oContainer.onmouseout = function(){
-            timer = setInterval(oNext.onclick,1000);
-        }
-        
+        })
+    
     </script>
 </body>
 </html>

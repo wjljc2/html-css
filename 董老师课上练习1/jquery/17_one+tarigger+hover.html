@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1">aaa</div>
+    <input type="text">
+    <button>click</button>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        // one 指能点击一次 
+        // $('div1').one('click',function(){
+        //     console.log('hahaha');
+        // })
+
+        $('input').on('focus',function(){
+            console.log('hahaha');
+        })
+        $('button').on('click',function(){
+            $('input').trigger('focus');    // 获取焦点并显示
+            $('input').triggerHandler('focus');
+        })
+        $('#div1').hover(function(){
+            // 鼠标划入
+            console.log('11111');
+            $(this).css('background','green');
+        },function(){
+            // 鼠标划出
+            console.log('222222');
+            $(this).css('background','red');
+        })
+    
+    </script>
+</body>
+</html>

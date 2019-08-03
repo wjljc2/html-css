@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #container{
+            margin: 200px 300px;
+            width: 750px;
+            height: 291px;
+            position: relative;
+        }
+        #btns{
+            position: absolute;
+            right: 5px;
+            bottom: 10px;
+        }
+        #btns li, #arrow li{
+            float: left;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            margin-right: 5px;
+            border-radius: 5px;
+            background: rgba(0,0,0,0.5);
+            color: #fff;
+            cursor: pointer;
+        }
+        #btns .list{
+            background: #ff0036;
+        }
+        #arrow{
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+        }
+        #content div{
+            display: none;
+        }
+        #content .selected{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id = "container">
+        <div id = "content">
+            <div class = "selected"><img src="../img/天猫超市1.jpg" alt=""></div>
+            <div><img src="../img/天猫超市2.jpg" alt=""></div>
+            <div><img src="../img/天猫超市3.jpg" alt=""></div>
+            <div><img src="../img/天猫超市4.jpg" alt=""></div>
+            <div><img src="../img/天猫超市5.jpg" alt=""></div>
+        </div>
+        <ul id = "btns">
+            <li class = "list">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        <ul id = "arrow">
+            <li id = "arrow-left">&lt;</li>
+            <li id = "arrow-right">&gt;</li>
+        </ul>
+    </div>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        var inow = 0;
+        $('#btns li').on('click',function(){
+            $(this).addClass('list').siblings().removeClass('list');
+            $('#content div').eq($(this).index()).addClass('selected').siblings().removeClass('selected');
+            inow = $(this).index();
+        })
+        $('#arrow-right').on('click',function(){
+            inow++;
+            if(inow == 5){
+                inow=0;
+            }
+            $('#btns li').eq(inow).addClass('list').siblings().removeClass('list');
+            $('#content div').eq(inow).addClass('selected').siblings().removeClass('selected');
+        })
+        $('#arrow-left').on('click',function(){
+            inow--;
+            if(inow == -1){
+                inow=4;
+            }
+            $('#btns li').eq(inow).addClass('list').siblings().removeClass('list');
+            $('#content div').eq(inow).addClass('selected').siblings().removeClass('selected');
+        })
+        var timer = setInterval(function(){
+            inow++;
+            if(inow == 5){
+                inow=0;
+            }
+            $('#btns li').eq(inow).addClass('list').siblings().removeClass('list');
+            $('#content div').eq(inow).addClass('selected').siblings().removeClass('selected');
+            },1000);
+        $('#container').hover(function(){
+            clearInterval(timer);
+        },function(){
+            timer = setInterval(function(){
+            inow++;
+            if(inow == 5){
+                inow=0;
+            }
+            $('#btns li').eq(inow).addClass('list').siblings().removeClass('list');
+            $('#content div').eq(inow).addClass('selected').siblings().removeClass('selected');
+            },1000);
+        })
+    </script>
+</body>
+</html>
