@@ -17,6 +17,8 @@ $(function(){
     // })
     $('#skin li').on('click',function(){
         $(this).addClass('selected').siblings().removeClass('selected');
+        $('.mainNav').attr('class','mainNav main-skin-'+$(this).index());
+        $('.new-h2').attr('class','new-h2 h2-skin-'+$(this).index());
     })
     
 })

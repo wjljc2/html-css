@@ -85,7 +85,34 @@
         $('li').on('click',function(){
             $(this).addClass('selected').siblings().removeClass('selected');
             $('.new').attr('class','new new-skin-'+$(this).index());
+            setCookie('skin','skin-'+$(this).index(),30);
         })
+        var skin = getCookie('skin');
+        $('#'+skin).triggerHandler('click');
+
+        function setCookie(attr,value,day){
+            var str = "";
+            str += attr+"="+value+";";  //"age=22;"
+            if(day){ //传day   "age=22;expires="+date;
+                var date = new Date();
+                var today = date.getDate();
+                date.setDate(today+day);
+                str += "expires="+date;
+            }
+            document.cookie = str;
+        }
+        function getCookie(key){
+            var str = document.cookie; //"name=zs; haha=1111; nameAA=lisi"
+            var arr = str.split('; '); //["name=zs","haha=1111","nameAA=lisi"]
+            for(var i=0; i<arr.length; i++){
+                var arr1 = arr[i].split('=');   //["name","zs"]
+                if(arr1[0] == key){
+                    return arr1[1];
+                }
+            }
+            return "";
+        }
+
     </script>
 </body>
 </html>

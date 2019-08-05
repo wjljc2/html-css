@@ -95,6 +95,24 @@
 .mainNav ul li a:hover { 
 	background:none; 
 }
+.main-skin-0{
+    background: #4a4a4a;
+}
+.main-skin-1{
+    background: #ba39d8;
+}
+.main-skin-2{
+    background: #e11356;
+}
+.main-skin-3{
+    background: #28c3d1;
+}
+.main-skin-4{
+    background: #faab1c;
+}
+.main-skin-5{
+    background: #afd400;
+}
 /* 二级菜单 */
 .jnNav {
     background:#FFFFFF;
@@ -190,7 +208,24 @@
 	color:#fff;
 	font-size:12px;
 	text-indent:13px;
-	background-color:#6E6E6E;
+}
+.h2-skin-0{
+    background: #6e6e6e;
+}
+.h2-skin-1{
+    background-color: #D49AE1;
+}
+.h2-skin-2{
+    background-color: #F296B2;
+}
+.h2-skin-3{
+    background-color: #98E0E6;
+}
+.h2-skin-4{
+    background-color: #FFCF78;
+}
+.h2-skin-5{
+    background-color: #CDE074;
 }
 .jnCatainfo{
     border: 1px solid #6E6E6E;
