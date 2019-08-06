@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+     <!-- 从数组和对象中提取值，对变量进行赋值，这被称为解构 -->
+     <script>
+        //  let arr = [1,2];
+        //  let [a,b] = arr;
+        //  console.log(a,b);
+
+        //  function fn([x,y,z=100]){
+        //     console.log(x,y,z);
+        //  }
+        //  fn([1,2]);
+         // 函数形参如果不设置默认值且不传参数的话 会输出underfind
+     
+        //  let obj = {
+        //     name:'zs',
+        //     age:20,
+        //     x:'aaa',
+        //     y:'bb'
+        // }
+        // let {x,y} = obj;//undefined undefined
+        // let {name,age} = obj;//zs 20
+        // console.log(x,y);
+        // console.log(name,age);
+
+        // 两个数的交换 变量互换
+        let a = 5;
+        let b = 6;
+        //1
+        // let c;
+        // c=a;
+        // a=b;
+        // b=c;
+
+        //2
+        // [a,b] = [b,a]
+
+        //3
+        a=a+b;
+        b=a-b;
+        a=a-b;
+
+        //4
+        a = [b,b=a][0];
+     </script>
+</body>
+</html>
