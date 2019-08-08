@@ -19,39 +19,62 @@
         // var arr1 = Array.from(ali);
         // console.log(arr1);
 
-        var arr3 = [1,2,3,4,5];
+        // var arr3 = [1,2,3,4,5];
         // 找到第一个符合条件的成员 
-        var x = arr3.find(function(val,key,arr){
+        // var x = arr3.find(function(val,key,arr){
             // console.log(val,key,arr);
-            return val > 1;
-        })
-        console.log(x);
+        //     return val > 1;
+        // })
+        // console.log(x);
 
 
-        var arr4 = [{
-            name: 'zs',
-            age: 20
-        }, {
-            name: 'lisi',
-            age: 18
-        }, {
-            name: 'wangnwu',
-            age: 30
-        },
-        {
-            name: 'xxx',
-            age: 18
-        }];
+        // var arr4 = [{
+        //     name: 'zs',
+        //     age: 20
+        // }, {
+        //     name: 'lisi',
+        //     age: 18
+        // }, {
+        //     name: 'wangnwu',
+        //     age: 30
+        // },
+        // {
+        //     name: 'xxx',
+        //     age: 18
+        // }];
 
-        var obj1 = arr4.find(function(obj,index,arr){
-            return obj.age == 18;
+        // var obj1 = arr4.find(function(obj,index,arr){
+        //     return obj.age == 18;
+        // })
+        // console.log(obj1);
+        // // 过滤出所有符合条件的成员
+        // var arr5 = arr4.filter(function(obj){
+        //     return obj.age == 18;
+        // })
+        // console.log(arr5);
+
+        var arr6 = [1,2,3,4,5];
+        // 映射出新数组 返回新数组
+        var arr7 = arr6.map(function(val,index){
+            return val*2;
+        });
+        console.log(arr7);  // 2,4,6,8,10
+
+        // 循环数组
+        arr6.forEach(function(val,index){
+            console.log(val,index);  // 此处输出数组的值和索引
         })
-        console.log(obj1);
-        // 过滤出所有符合条件的成员
-        var arr5 = arr4.filter(function(obj){
-            return obj.age == 18;
-        })
-        console.log(arr5);
+        
+        var arr8 = ['a','b','c','d','e'];
+        for(val of arr8){  // 循环数组中的元素
+            console.log(val);  // a,b,c,d,e
+        }
+        for(index of arr8.keys()){  // 循环索引
+            console.log(index);  // 0,1,2,3,4
+        }
+        for([index,val] of arr8.entries()){  // 循环索引和数组中的元素
+            console.log(index,val);     
+        }
     </script>
 </body>
 </html>
