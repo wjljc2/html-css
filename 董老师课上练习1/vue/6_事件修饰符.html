@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <a href="http://www.baidu.com" @click.prevent.once = "fn()">baidu</a>
+        <input type="text" @keyup.enter = "fn1()" >
+        <!-- keyup.enter  只有enter时才输出enter的键盘码13 -->
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el:"#app",
+            methods:{
+                fn(){
+                    console.log('haha');
+                },
+                fn1(){
+                    console.log(event.keyCode);
+                }
+            }
+        })
+    
+    
+    </script>
+</body>
+</html>

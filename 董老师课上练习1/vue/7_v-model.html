@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 框中的值是 v-model对应的在data中的值 -->
+        <input type="text" v-model = "msg">
+        <h3>爱好: </h3>
+        <input type="checkbox" v-model = "hobby" value = "篮球">篮球
+        <input type="checkbox" v-model = "hobby" value = "唱">唱
+        <input type="checkbox" v-model = "hobby" value = "跳">跳
+
+        <input type="radio" value = "男" v-model = "sex">男
+        <input type="radio" value = "女" v-model = "sex">女
+
+        <select v-model = "school">
+            <option value="黑大">黑大</option>
+            <option value="理工">理工</option>
+            <option value="林大">林大</option>
+        </select>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                msg:"haha",
+                hobby:[],
+                sex:'男',
+                school:'黑大'
+            },
+        })
+    
+    </script>
+</body>
+</html>
