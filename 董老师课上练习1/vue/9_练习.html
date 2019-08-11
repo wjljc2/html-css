@@ -5,8 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        .a{
+            color:red;
+        }
+    </style>
 </head>
 <body>
-    
+    <div id="app">
+        <input type="text" v-model = "name" @keyup = "filter()">
+        <button @click = "add()">add</button>
+        <ul>
+            <li v-for = "(obj,index) in list" @click = "change(obj)" :class = "{a:obj.isR}" v-show = "obj.isS">{{obj.name}}
+                <button @click.stop = "del(index)">del</button>
+            </li>
+        </ul>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                list:[
+                    {
+                     name:'aaa',
+                     isR:false,
+                     isS:true
+                    }
+                ], 
+                name:""
+            },
+            methods:{
+                add(){
+                    // 1. 获取input的obj  this.
+                    this.list.push({name:this.name,isR:false,isS:true});
+                    // 添加后将input的value制空
+                    this.name = "";
+                    this.filter();
+                },
+                del(index){
+                    // 索引 删除个数 添加
+                    this.list.splice(index,1);
+                },
+                change(obj){
+                    // 点击的li的isRed = !isRed;
+                    obj.isR = !obj.isR;
+                },
+                filter(){
+                    // 取到input的 value
+                    // this.name
+                    // 找到包含value显示 其他隐藏
+                    let value = this.name;
+                    this.list.forEach(function(obj,index){
+                        if(obj.name.includes(value)){
+                            obj.isS = true;
+                        }else{
+                            obj.isS = false;
+                        }
+                    })
+                }
+            }
+        })
+    </script>
 </body>
 </html>
