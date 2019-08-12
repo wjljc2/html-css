@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for = "value in arr">{{value}}</li>
+        </ul>
+        <ul>
+            <li v-for="obj in student">{{obj.name}}--{{obj.age}}--{{obj.school}}</li>
+        </ul>
+        <button @click = "fn('asdsadasd')">click</button>
+        <input type="text" @keyup.enter = "fn1()">
+        <a href="#" @click.prevent = "fn2()" ></a>
+        
+        <div id="div1" @click = "fn4()"">
+            haha
+            <div id="div2" @click = "fn()3">hehe</div>
+        </div>
+
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                msg:"haha",
+                arr:[1,2,3],
+                student:[
+                {
+                    name:'zs',
+                    age:10,
+                    school:'ligong',
+                },
+                {
+                    name:'lisi',
+                    age:20,
+                    school:'heida'
+                },
+                {
+                    name:'wangwu',
+                    age:23,
+                    school:'linda'
+                }
+                ]
+            },
+            methods:{
+                fn(a){
+                    console.log('haha',a)
+                },
+                fn1(){
+                    console.log('回车');
+                },
+                fn3(){
+                    console.log('div2');
+                },
+                fn4(){
+                    console.log('div1');
+                }
+            }
+        })
+    
+    </script>
+</body>
+</html>
