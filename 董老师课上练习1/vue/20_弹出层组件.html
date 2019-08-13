@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .close{
+            float: right;
+        }
+        #container{
+            width: 230px;
+            height: 500px;
+            border: 1px solid #000000;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <button>登陆</button>
+        <button>注册</button>
+    </div>
+    <template id = 'temp'>
+        <div id = 'container'>
+            登陆
+            <span class = "close">[X]</span>
+            <hr>
+            <label for="username">用户名</label>
+            <input type="text" placeholder="请输入用户名">
+            <label for="password">密码</label>
+            <input type="text" placeholder="请输入密码">
+            <button>登陆</button>
+        </div>
+    </template>
+    <script src = "vue.js"></script>
+    <script>
+        new Vue({
+            
+        })
+    
+    </script>
+</body>
+</html>
