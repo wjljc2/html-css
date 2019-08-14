@@ -1,0 +1,70 @@
+@import 'common';
+$color:orange;
+$color:red !default;
+$attr: width;
+$url:'1.jpg';
+body{
+    // background: $color;
+    color:green;
+    #{$attr}: 800px;
+    height: 300px;
+    background: $color url(#{$url}) 0 0 no-repeat;
+    #app{
+        color:pink;
+        h2{
+            width: 800px;
+            @include a(300px,400px);
+        }
+        p{
+            height: 300px;
+            @include a(500px,200px,pink);
+            padding: {
+                top: 20px;
+                bottom: 20px;
+            }
+            &:hover{
+                color:blue;
+            }
+        }
+        h5{
+            @extend h2;
+            color:#000;
+        }
+    }
+    .arrow{
+        @include arrow(50px,#00f,'right');
+
+        // 注释1 
+        /* 注释2 */
+    }
+    $i:10;
+    @if($i<0){
+        .aa{
+            width: 200px;
+            background: #000;
+        }
+    }
+    @for $j from 1 to 5{
+        // @for $j from 1 through 5
+        .item-#{$j}{
+            width: 20px*$j;
+        }
+    }
+
+    $m:5;
+    @while($m<10){
+        .xx#{$m}{
+            width: 50px*$m;
+        }
+        $m:$m+1;
+    }
+
+    $list:success error warn;
+    @each $n in $list{
+        .#{$n}{
+            background: url(#{$n}.jpg);
+        }
+    }
+
+
+}

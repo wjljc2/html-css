@@ -21,26 +21,57 @@
     </style>
 </head>
 <body>
-    <div>
-        <button>登陆</button>
-        <button>注册</button>
+    <div id = "app">
+        <button @click = "loginshow = !loginshow">登陆</button>
+        <button @click = "regshow = !regshow">注册</button>
+        <my-container title = "登陆" v-show = "loginshow">
+            用户名<input type="text" placeholder="请输入用户名">
+            </br>
+            密码<input type="text" placeholder="请输入密码">
+            </br>
+        </my-container>
+        <my-container title = "注册" v-show = "regshow">
+            用户名<input type="text" placeholder="请输入用户名">
+            </br>
+            密码<input type="text" placeholder="请输入密码">
+            </br>
+            确认密码<input type="text">
+            </br>
+        </my-container>
     </div>
     <template id = 'temp'>
-        <div id = 'container'>
-            登陆
-            <span class = "close">[X]</span>
+        <div id = 'container' v-show = "isshow">
+            {{title}}
+            <span class = "close" @click = "$emit("close",)">[X]</span>
             <hr>
-            <label for="username">用户名</label>
-            <input type="text" placeholder="请输入用户名">
-            <label for="password">密码</label>
-            <input type="text" placeholder="请输入密码">
-            <button>登陆</button>
+            <slot></slot>
+            <button>{{title}}</button>
         </div>
     </template>
     <script src = "vue.js"></script>
     <script>
         new Vue({
-            
+            el:"#app",
+            data:{
+                loginshow:false,
+                regshow:false
+            },
+            components:{
+                "myContainer":{
+                    template:"#temp",
+                    props:['title'],
+                    data(){
+                        return {
+                            isshow:true,
+                        }
+                    },
+                    methods:{
+                        digclose(){
+                            this.isshow = false;
+                        }
+                    }
+                }
+            }
         })
     
     </script>
