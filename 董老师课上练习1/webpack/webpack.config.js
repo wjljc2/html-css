@@ -1,6 +1,7 @@
 const path = require('path');  
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
     mode:"development", // production  
     entry:{
@@ -20,6 +21,10 @@ module.exports = {
             template:'./src/index.html'  // 转化到dist中html文件
         }),
         new ExtractTextPlugin("styles.css"),
+        new CopyWebpackPlugin([{
+            from:__dirname + '/src/public',
+            to:'./public'
+        }])
     ],
     devServer:{
         contentBase: path.resolve(__dirname,'dist'),  // 根目录
@@ -31,7 +36,10 @@ module.exports = {
                 test: /\.css$/,
                 use:ExtractTextPlugin.extract({
                     fallback: "style-loader",
-                    use: "css-loader"
+                    use: [{
+                         loader: 'css-loader', options: { importLoaders: 1 } },
+                        'postcss-loader'
+                      ]
                 })
             },
             {
@@ -46,6 +54,27 @@ module.exports = {
                     }
                     
                 ]
+            },
+            {
+                test:/\.(htm|html)$/i,
+                loader:['html-withimg-loader']
+            },
+            {
+                test:/\.(scss|sass)$/,
+                use:ExtractTextPlugin.extract({
+                    fallback: "style-loader",
+                    use: ["css-loader","sass-loader"]
+                })
+            },
+            {
+                test:/\.js$/,
+                use:[{
+                    loader:'babel-loader',
+                    options:{
+                        presets:['@babel/preset-env']
+                    },
+                }],
+                exclude:/node_modules/
             }
         ]
     }
