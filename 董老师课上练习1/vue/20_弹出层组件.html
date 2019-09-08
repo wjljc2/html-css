@@ -42,7 +42,7 @@
     <template id = 'temp'>
         <div id = 'container' v-show = "isshow">
             {{title}}
-            <span class = "close" @click = "$emit("close",)">[X]</span>
+            <span class = "close" @click = "$emit('close')">[X]</span>
             <hr>
             <slot></slot>
             <button>{{title}}</button>

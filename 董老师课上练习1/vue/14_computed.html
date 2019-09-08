@@ -8,9 +8,9 @@
 </head>
 <body>
     <div id="app">
-        <h2>firstname:{{}}</h2>
-        <h2>lastname:{{}}</h2>
-        <h2>fullname:{{}}</h2>
+        <h2>firstname:{{firstname}}</h2>
+        <h2>lastname:{{lastname}}</h2>
+        <h2>fullname:{{fullname}}</h2>
     </div>
 
     <script src="vue.js"></script>
@@ -23,17 +23,20 @@
             },
             // 计算属性
             computed:{
-                fullName:{
-                    get:function(){
-                        return this.firstname + " " + this.lastname;
-                    },
-                    set:function(newName){
-                        console.log(newName);
-                        let arr = newName.split(" ");
-                        this.firstname = arr[0];
-                        this.lastname = arr[1];
-                    }
-                }
+                fullname(){
+                    return this.firstname +" "+ this.lastname;
+                },
+                // fullname:{
+                    // get:function(){
+                    //     return this.firstname + " " + this.lastname;
+                    // },
+                    // set:function(newName){
+                    //     console.log(newName);
+                    //     let arr = newName.split(" ");
+                    //     this.firstname = arr[0];
+                    //     this.lastname = arr[1];
+                    // }
+                // }
             },
             watch:{
                 firstname:function(newValue,oldValue){
