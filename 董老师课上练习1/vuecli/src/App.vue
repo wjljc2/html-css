@@ -7,11 +7,25 @@
       <router-link :to="{name: 'mine',params:{id:666,name:'小王'}}">我的params</router-link> |
       <router-link :to="{path: '/mine',query:{id:666,name:'小王'}}">我的query</router-link> |
       <router-link to="/test/5/lisi">test</router-link>
+      <router-link to="/aaa">重定向到主页</router-link>
+      <button @click = "$router.push('/')">首页</button>
+      <button @click = "$router.go(-1)">上一页</button>
+      <button @click = "$router.go(1)">下一页</button>
     </div>
-    <router-view/>
+    <transition name = "fade">
+      <router-view/>
+    </transition>
   </div>
 </template>
-
+  <script>
+    export default{
+      methods:{
+        go(){
+          this.router.push('/');
+        }
+      }
+    }
+  </script>
 <style lang="scss">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -29,5 +43,23 @@
       color: #42b983;
     }
   }
+}
+.fade-enter{
+  opacity: 0;
+}
+.fade-enter-active{
+  transition: opacity 2s ease;
+}
+.fade-enter-to{
+  opacity: 1;
+}
+.fade-leave{
+  transform: translateX(0);
+}
+.fade-leave-active{
+  transition: transform 1s ease;
+}
+.fade-leave-to{
+  transform: translateX(100%);
 }
 </style>

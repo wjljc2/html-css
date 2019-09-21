@@ -17,6 +17,13 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home,
+      beforeEnter: (to,from,next) =>{
+        console.log('首页',to);
+        console.log('首页',from);
+        console.log('首页',next);
+        next();
+      }
+
     },
     {
       path: '/about',
@@ -47,6 +54,10 @@ export default new Router({
       path: '/test/:id/:name',
       name: 'test',
       component: Test,
+    },
+    {
+      path: '/aaa',
+      redirect: '/'
     },
     {
       path:'*',
