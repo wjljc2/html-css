@@ -2,7 +2,11 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/about">About</router-link> |
+      <!-- <router-link to="/Mine">Mine</router-link> | -->
+      <router-link :to="{name: 'mine',params:{id:666,name:'小王'}}">我的params</router-link> |
+      <router-link :to="{path: '/mine',query:{id:666,name:'小王'}}">我的query</router-link> |
+      <router-link to="/test/5/lisi">test</router-link>
     </div>
     <router-view/>
   </div>
