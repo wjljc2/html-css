@@ -1,6 +1,7 @@
 <template>
-    <div class = "header">
-        <router-link to='/return'>首页</router-link>
+    <div class = "header"  :style="{background:$store.state.color}">
+        <router-link to='/return' @click.native="$store.commit('change',{title:'电影',color:'red'})">首页</router-link>
+        {{$store.state.title}}
     </div>
 </template>
 
