@@ -1,7 +1,7 @@
 <template>
     <div>
         <ul class = 'musiclist'>
-            <li v-for = "(obj,index) in musiclist" :key="index">
+            <li v-for = "(obj,index) in musiclist" :key="index" @click="godetail()">
                 <img :src="obj.bg" alt="">
             </li>
         </ul>
@@ -23,6 +23,13 @@
             }).catch((res)=>{
                 alert('服务器错误');
             })
+        },
+        methods:{
+            godetail(){
+                this.$router.push({
+                    path:'/musicdetail',
+                })
+            }
         }
     }
 </script>
