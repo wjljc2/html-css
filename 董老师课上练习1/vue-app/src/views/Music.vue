@@ -1,7 +1,7 @@
 <template>
     <div>
         <ul class = 'musiclist'>
-            <li v-for = "(obj,index) in musiclist" :key="index" @click="godetail()">
+            <li v-for ="(obj,index) in musiclist" :key="index" @click="godetail(obj.id)">
                 <img :src="obj.bg" alt="">
             </li>
         </ul>
@@ -25,9 +25,12 @@
             })
         },
         methods:{
-            godetail(){
+            godetail(id){
                 this.$router.push({
                     path:'/musicdetail',
+                    query:{
+                        id
+                    }
                 })
             }
         }

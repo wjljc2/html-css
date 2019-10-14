@@ -1,6 +1,5 @@
 <template>
     <div>
-        ......
         <img :src="Detiallist.images.small" alt="">
         <ul>
             <li class = "castlist" v-for="(cast,index) in Detiallist.casts" :key="index">
