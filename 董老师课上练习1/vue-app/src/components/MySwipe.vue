@@ -5,6 +5,8 @@
                 <img :src="obj" alt="">
             </li>
         </transition-group>
+        <button @click = "fn()">click 回传</button>
+
 
     </div>
 </template>
@@ -14,20 +16,27 @@
         data(){
             return{
                 nowIndex:0,
-                imgList:[
-                    '/img/photo/1.jpg',
-                    '/img/photo/2.jpg',
-                    '/img/photo/3.jpg'
-                ]
+                // imgList:[
+                //     '/img/photo/1.jpg',
+                //     '/img/photo/2.jpg',
+                //     '/img/photo/3.jpg'
+                // ]
             }
         },
+        props:['imgList','mode','speed'],
         created(){
             setInterval(()=>{
                 this.nowIndex++;
                 if(this.nowIndex == this.imgList.length){
                     this.nowIndex = 0;
                 }
-            },2000)
+            },this.speed)
+        },
+        methods:{
+            fn(){
+                // $emit 子组件对父组件传值
+                this.$emit('xx','111111');
+            }
         }
     };
 </script>
