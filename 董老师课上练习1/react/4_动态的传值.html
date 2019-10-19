@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script src="react.development.js"></script>
+    <script src="react-dom.development.js"></script>
+    <script src="browser.min.js"></script>
+
+    <script type = "text/babel">
+
+    class Welcome extends React.Component{
+        constructor(){
+            super(); // 继承父类的属性和方法
+            this.state = {
+                num:100
+            }
+            // 改变this指向
+            this.addHandle = this.addHandle.bind(this);
+        }
+        addHande(){
+            // console.log(this)
+            /* 
+                此时this指向的是add方法下的this 
+                因此用this.state.num取不到num的值
+                因此无法修改所以需要改变this的指向.
+            */
+            /*
+                this.state不能直接对state中的数据修改
+                固定方法this.setState可以对值进行修改
+                方法里是对象
+            */
+           this.setState({
+                num:this.state.num+1
+           });
+         }
+        render(){
+            return(
+                <div>
+                    <h1>{this.state.num}</h1>
+                    <button 
+                    onClick = {this.addHandle}>add</button>    
+                </div>
+            )
+        }
+        ReactDOM.render(
+            <Welcome></Welcome>,
+            document.getElementById('root')
+        )
+    }
+    
+    </script>
+</body>
+</html>
