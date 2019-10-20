@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script src="react.development.js"></script>
+    <script src="react-dom.development.js"></script>
+    <script src="browser.min.js"></script>
+    
+    <script type="text/babel" >
+        class Main extends React.Component{
+            constructor(){
+                super();
+                this.state={
+                    rest:120,
+                    numA:100,
+                    numB:80
+                }
+                this.change = this.change.bind(this);
+            }
+            change(name,num){
+                if(this.state.rest < num){
+                    alert("不够了")
+                }else{
+                    setState({
+                        ['num'+name] : this.state['num'+name]+num*1,
+                        rest:this.state.rest-num*1
+                    })
+                }
+            }
+            render(){
+                return(
+                    <div>
+                        <h1>剩余士兵数量{this.state.rest}</h1>
+                        <Gen name="A" change={thus.change} num={this.state.numA}></Gen>
+                        <Gen name="B" change={thus.change} num={this.state.numB}></Gen>
+                    </div>
+                )
+            }
+        }
+        class Gen extends React.Component{
+            render(){
+                return(
+                    <div>
+                    <p>将军{this.props.name}有士兵:{this.props.num}</p>
+                    <input type="text" ref={input => this.myinput = input} />
+                    <button onClick={()=>{
+                        this.props.change(this.props.name,this.myinput.value);
+                    }}>调兵</button>
+                    </div>
+                )
+            }
+        }
+    
+    
+    
+    </script>
+</body>
+</html>

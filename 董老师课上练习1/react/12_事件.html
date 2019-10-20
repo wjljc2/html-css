@@ -12,26 +12,31 @@
     <script src="react-dom.development.js"></script>
     <script src="browser.min.js"></script>
 
-    <script type = "text/babel">
-    
-        class Welcome extends React.Component{
+    <script type="text/babel" >
+        class Main extends React.Component{
+            constructor(){
+                super();
+                this.fn = this.fn.bind(this);
+            }
+            fn(e){
+                console.log(e.target.value);
+            }
             render(){
                 return(
                     <div>
-                        <h2>欢迎 {this.props.name}</h2>    
-                        <p>{this.props.content}</p>
-                        {this.props.children}
+                        <input type="text" onChange={this.fn}/>
                     </div>
                 )
             }
         }
-    
         ReactDOM.render(
-            <Welcome name = "张三" content = "你好">
-                <h2>1111</h2>
-            </Welcome>,
+            <Main></Main>,
             document.getElementById('root')
         )
+
+
+
+
     </script>
 </body>
 </html>

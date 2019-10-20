@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script src="react.development.js"></script>
+    <script src="react-dom.development.js"></script>
+    <script src="browser.min.js"></script>
+
+    <script type = "text/babel">
+        class Anm extends React.Component{
+            constructor(){
+                super();
+                this.state={
+                    bossA:'A',
+                    bossB:'B',
+                    numtotal:100,
+                    numA:120,
+                    numB:80
+                }
+                this.addA = this.addA.bind(this)
+                this.addB = this.addB.bind(this)
+            }
+            addA(num1,num2){
+                if(this.state.numtotal < num2){
+                    alert("超了");
+                }
+                else{   
+                    this.setState({
+                        numA : num1*1+num2*1,
+                        numtotal : this.state.numtotal-num2*1
+                    })
+                }
+            }
+            addB(num1,num2){
+                if(this.state.numtotal < num2){
+                    alert("超了");
+                }
+                else{
+                    this.setState({
+                        numB : num1*1+num2*1,
+                        numtotal : this.state.numtotal-num2
+                    })
+                }
+            }
+            render(){
+                return(
+                    <div>
+                        <h2>剩余士兵数量{this.state.numtotal}</h2>
+                        <Solider bossA={this.state.bossA} bossB={this.state.bossB} 
+                            numA={this.state.numA} numB={this.state.numB}
+                            addA={this.addA} addB={this.addB}
+                        ></Solider>
+                    </div>
+                )
+            }
+        }
+        class Solider extends React.Component{
+            render(){
+                return(
+                    <div>
+                        <p>将军{this.props.bossA}有士兵{this.props.numA}</p>
+                        <input type="text" ref={(ainput)=>this.amyinput = ainput}/>
+                        <button onClick={()=>{
+                            this.props.addA(this.props.numA,this.amyinput.value)
+                        }}>调兵</button>
+
+
+                        <p>将军{this.props.bossB}有士兵{this.props.numB}</p>
+                        <input type="text" ref={(binput)=>this.bmyinput = binput}/>
+                        <button onClick={()=>{
+                            this.props.addB(this.props.numB,this.bmyinput.value)
+                            // console.log(this.bmyinput.value)
+                        }}>调兵</button>
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(
+            <Anm></Anm>,
+            document.getElementById('root')
+        )
+    </script>
+</body>
+</html>
