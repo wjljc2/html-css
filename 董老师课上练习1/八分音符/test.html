@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    #dog{
+        width: 80px;
+        height: 80px;
+        background-image: ;
+    }
+
+</style>
+<body>
+    <div id="dog"></div>
+    <div id="ground"></div>
+    <script>
+        // 测试当前浏览器是否支持麦克风
+        if(!navigator.mediaDevices.getUserMedia){
+            alert("不支持麦克风!");
+        }else{
+            navigator.mediaDevices.getUserMedia({
+                audio:true
+            }).then(function(stream){
+                // 1.创建了一个音频上下文  相当于建了一个录音棚
+                var actx = new AudioContext();
+                // 2.收集音频来源
+                var source = actx.createMediaStreamSource(stream);
+                // 3.处理音源 参数:第一个:缓存(收集一部分音源再处理) 第二个:输入声道 第三个:输出声道
+                var handler = actx.createScriptProcessor(1024, 1, 1);  
+                // 4.连接source和handler
+                source.connect(handler);
+
+                handler.onaudioprocess = function(e){   // 处理器在处理音频的过程中
+                    var inputBuffer = e.inputBuffer;
+                    var outputBuffer = e.outputBuffer;
+                    var inputData = inputBuffer.getChannelData(0);  // 获取输入声道 参数0 获取一个声道
+                    // 设计一个算法 判断狗子是走还是跳
+                    var avg = getAverage(inputData) * 10000;
+                    console.log(avg);
+                };
+
+
+            }).catch(function(err){
+                console.log(err);
+            });
+        }
+
+        function getAverage(arr){
+            var sum = 0;
+            for(var i = 0; i < arr.length; i++){
+                sun += arr[i];
+            }
+            return sum / arr.length;
+        }
+        // BOM
+    </script>
+</body>
+</html>
