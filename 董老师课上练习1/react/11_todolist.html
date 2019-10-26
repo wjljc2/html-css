@@ -9,6 +9,12 @@
         .red{
             background: #f00;
         }
+        .show{
+            display: block;
+        }
+        .hide{
+            display: none;
+        }
     
     </style>
 </head>
@@ -27,12 +33,14 @@
                         {
                             id:1,
                             name:'吃饭',
-                            active:false
+                            active:false,
+                            show:true,
                         },
                         {
                             id:2,
                             name:'睡觉',
-                            active:false
+                            active:false,    // 代表是否要标红
+                            show:true,  //  代表显示隐藏
                         }
                     ],
                     id:3
@@ -40,13 +48,28 @@
                 this.add = this.add.bind(this);
                 this.change = this.change.bind(this);
                 this.delet = this.delet.bind(this);
+                this.search = this.search.bind(this);
+            }
+            search(val){
+                let arr = [...this.state.list];
+                arr.forEach((obj)=>{
+                    if(obj.name.includes(val)){
+                        obj.show = true;
+                    }else{
+                        obj.name = false;
+                    }
+                })
+                this.setState({
+                    list:arr
+                })
             }
             add(val){
                 let arr = this.state.list;
                 arr.push({
                     id:this.state.id++,
                     name:val,
-                    active:false
+                    active:false,
+                    show:true
                 })
                 this.setState({
                     list:arr
@@ -60,14 +83,33 @@
                 })
             }
             delet(index){
-                
+                let arr = [...this.state.list]
+                // 删除索引是index 的数组
+                arr.splice(index,1);
+                // 更新state
+                this.setState({
+                    list:arr
+                })
             }
             render(){
                 return(
                     <div>
                         <h2>ToDoList</h2>
+                        <Search search={this.search}></Search>
                         <Add add={this.add}></Add>
-                        <ShowList list={this.state.list} change = {this.change}></ShowList>
+                        <ShowList list={this.state.list} change = {this.change} delet = {this.delet}></ShowList>
+                    </div>
+                )
+            }
+        }
+        class Search extends React.Component{
+            render(){
+                return(
+                    <div>
+                        搜索: <input type="text" ref={input=> this.myinput = input}/>
+                        <button onClick={()=>{
+                            this.props.search(this.myinput.value);
+                        }}>search</button>
                     </div>
                 )
             }
@@ -76,7 +118,7 @@
             render(){
                 return(
                     <div>
-                        <input type="text" ref={input => this.myinput = input}/>
+                        添加: <input type="text" ref={input => this.myinput = input}/>
                         <button onClick={()=>{
                             this.props.add(this.myinput.value)
                         }}>add</button>
@@ -90,15 +132,21 @@
                     <div>
                         <ul>
                             {
+                                
                                 this.props.list.map((obj,index)=>{
+                                    let a = obj.active?"red":'';
+                                    let b = obj.show?"show":'hide';
+                                    let cName = a + " " + b;
                                     return (
-                                        <li key={obj.id} className = {obj.active?"red":''}>
+                                        <li key={obj.id} className = {cName}>
                                             <input type="checkbox" onClick = {()=>{
+                                                // 修改list中对象的active属性 不能直接修改 调用方法修改
                                                 this.props.change(index);
                                             }}/>
                                             <span>{obj.name}</span>
                                             <button onClick={()=>{
-                                                this.props.delet()
+                                                // 删除索引是index的元素
+                                                this.props.delet(index);
                                             }}>删除</button>
                                         </li>
                                     )
