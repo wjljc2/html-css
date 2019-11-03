@@ -1,12 +1,24 @@
 import React, { Component } from 'react';
 import {
-    Link 
+    Link, 
+    Route
 }  from "react-router-dom";
  
 class Jump extends Component {
     render() {
-        return (
-            <Link to = {this.props.to}>{this.props.children}</Link>
+        return(
+            <Route path = {this.props.to} children = {({match}) =>{
+                return (
+                
+                    <div>
+                        {match?"<":""}
+                        <Link to = {this.props.to}>{this.props.children}</Link>
+        
+                    </div>
+                    
+                ); 
+            }}>
+            </Route>
         );
     }
 }
